@@ -111,4 +111,39 @@ resetBtn.addEventListener("click", () => {
   secTens.textContent = secondsTens;
   msTens.textContent = milliSTens;
   msHundreds.textContent = milliSHundreds;
+
+  const lapContainer = document.getElementById("laps");
+  lapContainer.textContent = "";
+});
+
+// Add an event listener that will add laps
+const addLap = document.getElementById("add-lap");
+
+addLap.addEventListener("click", () => {
+  // Reset the timer to defaults
+  const lapContainer = document.getElementById("laps");
+  const addItem = document.createElement("p");
+  addItem.classList.add("lap-item");
+
+  let secondsSide;
+  let milliSecondsSide;
+
+  if (seconds < 10) {
+    secondsSide = `0${seconds}`;
+  } else {
+    secondsSide = seconds;
+  }
+
+  if (milliSeconds < 10) {
+    milliSecondsSide = `0${milliSeconds}`;
+  } else {
+    milliSecondsSide = milliSeconds;
+  }
+
+  addItem.textContent = `${secondsSide} : ${milliSecondsSide}`;
+
+  lapContainer.appendChild(addItem);
+
+  seconds = 0;
+  milliSeconds = 0;
 });
