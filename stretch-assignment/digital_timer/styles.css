@@ -1,7 +1,5 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: #130f40;
 }
 
 .digit {
@@ -9,6 +7,60 @@ body {
   font-size: 80px;
 }
 
-.redDigit {
-  color: red;
+.digits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #30336b 1px solid;
+  padding: 20px;
+  width: 250px;
+  background: #dff9fb;
+  margin: 50px auto;
+  border-radius: 10px;
+  color: #fff;
+  background: #eb4d4b;
+  font-family: "Inconsolata", monospace;
+}
+
+.digits.active {
+  background: #6ab04c !important;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.buttons button {
+  width: 180px;
+  padding: 10px 25px;
+  cursor: pointer;
+  background: #e056fd;
+  color: #fff;
+  border: #be2edd;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14pt;
+  margin-bottom: 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+.buttons button:disabled:hover {
+  background: #e056fd !important;
+  color: #fff !important;
+}
+
+.buttons button:hover {
+  color: #be2edd;
+  background: #fff;
+}
+
+.buttons button:disabled {
+  opacity: 0.5;
 }

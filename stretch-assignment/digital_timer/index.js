@@ -33,12 +33,10 @@ startBtn.addEventListener("click", () => {
   seconds = 0;
   milliSeconds = 0;
 
-  // Set the timer text to default color
-  const timerText = document.querySelectorAll(".digits .digit");
+  // Set timer to active
+  const timerContainer = document.querySelector(".digits");
 
-  timerText.forEach((element) => {
-    element.style.color = "black";
-  });
+  timerContainer.classList.add("active");
 });
 
 // Set an interval that updates every 10ms
@@ -86,12 +84,10 @@ function startTimer() {
 
 // Create function that will stop the interval
 function stopTimer() {
-  // Set all text to red
-  const timerText = document.querySelectorAll(".digits .digit");
+  // Set timer to inactive
+  const timerContainer = document.querySelector(".digits");
 
-  timerText.forEach((element) => {
-    element.style.color = "red";
-  });
+  timerContainer.classList.remove("active");
 
   // Remove the disable status for start button
   startBtn.removeAttribute("disabled");
@@ -115,11 +111,4 @@ resetBtn.addEventListener("click", () => {
   secTens.textContent = secondsTens;
   msTens.textContent = milliSTens;
   msHundreds.textContent = milliSHundreds;
-
-  // Set the timer text to default color
-  const timerText = document.querySelectorAll(".digits .digit");
-
-  timerText.forEach((element) => {
-    element.style.color = "black";
-  });
 });
