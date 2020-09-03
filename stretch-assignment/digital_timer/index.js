@@ -35,6 +35,7 @@ startBtn.addEventListener("click", () => {
 
   // Set timer to active
   const timerContainer = document.querySelector(".digits");
+  timerContainer.classList.remove("animate__wobble");
   timerContainer.classList.add("animate__animated", "animate__bounceIn");
 
   timerContainer.classList.add("active");
@@ -87,8 +88,11 @@ function startTimer() {
 function stopTimer() {
   // Set timer to inactive
   const timerContainer = document.querySelector(".digits");
-
   timerContainer.classList.remove("active");
+
+  // Add bounce effect
+  timerContainer.classList.remove("animate__bounceIn");
+  timerContainer.classList.add("animate__wobble");
 
   // Remove the disable status for start button
   startBtn.removeAttribute("disabled");
@@ -117,10 +121,6 @@ resetBtn.addEventListener("click", () => {
   lapContainer.textContent = "";
 
   stopTimer();
-
-  // Add effect to timer
-  const timerContainer = document.querySelector(".digits");
-  timerContainer.classList.remove("animate__animated", "animate__bounceIn");
 });
 
 // Add an event listener that will add laps
