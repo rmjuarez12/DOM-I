@@ -9,7 +9,7 @@ const siteContent = {
     "img-src": "img/logo.png",
   },
   cta: {
-    h1: "DOM Is Awesome",
+    h1: "DOM<br />Is<br />Awesome",
     button: "Get Started",
     "img-src": "img/header-img.png",
   },
@@ -33,7 +33,7 @@ const siteContent = {
   },
   contact: {
     "contact-h4": "Contact",
-    address: "123 Way 456 Street Somewhere, USA",
+    address: "123 Way 456 Street<br />Somewhere, USA",
     phone: "1 (888) 888-8888",
     email: "sales@greatidea.io",
   },
@@ -51,14 +51,33 @@ const navItems = document.querySelectorAll("nav a");
 
 navItems.forEach((element, index) => {
   element.textContent = siteContent.nav[`nav-item-${index + 1}`];
+
+  // Change color of nav items to be green
+  element.style.color = "green";
 });
+
+// Add 2 more new navigation items using prepend and appendChild
+const navItemContainer = document.querySelector("nav");
+const newFirstNavItem = document.createElement("a");
+const newLastNavItem = document.createElement("a");
+
+newFirstNavItem.textContent = "Home";
+newFirstNavItem.href = "#";
+newFirstNavItem.style.color = "green";
+
+newLastNavItem.textContent = "Blog";
+newLastNavItem.href = "#";
+newLastNavItem.style.color = "green";
+
+navItemContainer.prepend(newFirstNavItem);
+navItemContainer.appendChild(newLastNavItem);
 
 // Add CTA heading text, button, and image
 const ctaHeading = document.querySelector(".cta .cta-text h1");
 const ctaButton = document.querySelector(".cta .cta-text button");
 const ctaImg = document.getElementById("cta-img");
 
-ctaHeading.textContent = siteContent.cta.h1;
+ctaHeading.innerHTML = siteContent.cta.h1;
 ctaButton.textContent = siteContent.cta.button;
 ctaImg.src = siteContent.cta["img-src"];
 
@@ -96,7 +115,7 @@ const contactText = document.querySelectorAll(".contact p");
 
 contactHeading.textContent = siteContent.contact["contact-h4"];
 
-contactText[0].textContent = siteContent.contact.address;
+contactText[0].innerHTML = siteContent.contact.address;
 contactText[1].textContent = siteContent.contact.phone;
 contactText[2].textContent = siteContent.contact.email;
 
