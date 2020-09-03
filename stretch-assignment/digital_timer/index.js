@@ -129,6 +129,7 @@ const addLap = document.getElementById("add-lap");
 addLap.addEventListener("click", () => {
   // Get the lap container and create the element
   const lapContainer = document.getElementById("laps");
+  const lapCount = document.querySelectorAll("#laps p");
   const addItem = document.createElement("p");
   addItem.classList.add("lap-item", "animate__animated", "animate__bounceIn");
 
@@ -151,7 +152,7 @@ addLap.addEventListener("click", () => {
   }
 
   // Add the item to the container
-  addItem.textContent = `${secondsSide} : ${milliSecondsSide}`;
+  addItem.textContent = `Lap ${lapCount.length + 1} - ${secondsSide} : ${milliSecondsSide}`;
   lapContainer.appendChild(addItem);
 
   // Once the lap has been added, reset timer
