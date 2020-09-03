@@ -35,6 +35,7 @@ startBtn.addEventListener("click", () => {
 
   // Set timer to active
   const timerContainer = document.querySelector(".digits");
+  timerContainer.classList.add("animate__animated", "animate__bounceIn");
 
   timerContainer.classList.add("active");
 });
@@ -116,6 +117,10 @@ resetBtn.addEventListener("click", () => {
   lapContainer.textContent = "";
 
   stopTimer();
+
+  // Add effect to timer
+  const timerContainer = document.querySelector(".digits");
+  timerContainer.classList.remove("animate__animated", "animate__bounceIn");
 });
 
 // Add an event listener that will add laps
@@ -125,7 +130,7 @@ addLap.addEventListener("click", () => {
   // Get the lap container and create the element
   const lapContainer = document.getElementById("laps");
   const addItem = document.createElement("p");
-  addItem.classList.add("lap-item");
+  addItem.classList.add("lap-item", "animate__animated", "animate__bounceIn");
 
   // Declare the variables that will populate the element created
   let secondsSide;
