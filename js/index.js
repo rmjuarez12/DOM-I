@@ -123,3 +123,37 @@ contactText[2].textContent = siteContent.contact.email;
 const pageFooter = document.querySelector("footer p");
 
 pageFooter.textContent = siteContent.footer.copyright;
+
+// Add some extra styles via JS
+const allHeadings = document.querySelectorAll("h4");
+const allBodyText = document.querySelectorAll("p");
+
+allHeadings.forEach((element) => {
+  element.style.color = "#0499ff";
+});
+
+allBodyText.forEach((element) => {
+  element.style.color = "#1d211e";
+});
+
+ctaHeading.style.color = "#009f05";
+
+// Add a button with some event listener events
+const getFooter = document.querySelector("footer");
+const newButton = document.createElement("button");
+const buttonResponse = document.createElement("p");
+
+newButton.textContent = "Like out page!";
+newButton.style.marginBottom = "10px";
+
+buttonResponse.style.color = "green";
+buttonResponse.style.fontSize = "14pt";
+buttonResponse.style.fontWeight = "bold";
+buttonResponse.style.marginBottom = "10px";
+
+getFooter.prepend(buttonResponse);
+getFooter.prepend(newButton);
+
+newButton.addEventListener("click", (event) => {
+  buttonResponse.textContent = "THANK YOU FOR LIKING OUR PAGE!";
+});
