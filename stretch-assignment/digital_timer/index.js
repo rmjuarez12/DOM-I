@@ -114,36 +114,42 @@ resetBtn.addEventListener("click", () => {
 
   const lapContainer = document.getElementById("laps");
   lapContainer.textContent = "";
+
+  stopTimer();
 });
 
 // Add an event listener that will add laps
 const addLap = document.getElementById("add-lap");
 
 addLap.addEventListener("click", () => {
-  // Reset the timer to defaults
+  // Get the lap container and create the element
   const lapContainer = document.getElementById("laps");
   const addItem = document.createElement("p");
   addItem.classList.add("lap-item");
 
+  // Declare the variables that will populate the element created
   let secondsSide;
   let milliSecondsSide;
 
+  // Add leading zero if seconds are less than 10
   if (seconds < 10) {
     secondsSide = `0${seconds}`;
   } else {
     secondsSide = seconds;
   }
 
+  // Add leading zero if milliseconds are less than 10
   if (milliSeconds < 10) {
     milliSecondsSide = `0${milliSeconds}`;
   } else {
     milliSecondsSide = milliSeconds;
   }
 
+  // Add the item to the container
   addItem.textContent = `${secondsSide} : ${milliSecondsSide}`;
-
   lapContainer.appendChild(addItem);
 
+  // Once the lap has been added, reset timer
   seconds = 0;
   milliSeconds = 0;
 });
