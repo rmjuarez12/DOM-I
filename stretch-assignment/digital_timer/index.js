@@ -26,12 +26,12 @@ startBtn.addEventListener("click", () => {
   // Start the timer interval
   timerInterval = setInterval(startTimer, 10);
 
-  // Set button to disabled
-  startBtn.setAttribute("disabled", "true");
-
-  // Reset the timer to defaults
-  seconds = 0;
-  milliSeconds = 0;
+  // Set button to disabled and enable the pause and lap button
+  const stopTimerBtn = document.getElementById("stop-timer");
+  const addLap = document.getElementById("add-lap");
+  startBtn.style.display = "none";
+  stopTimerBtn.style.display = "block";
+  addLap.removeAttribute("disabled");
 
   // Set timer to active
   const timerContainer = document.querySelector(".digits");
@@ -80,26 +80,19 @@ function startTimer() {
 
   // Once the seconds reaches the limit we specified, stop the function
   if (seconds >= timeLimit) {
+    // Reset the timer to defaults
+    seconds = 0;
+    milliSeconds = 0;
     stopTimer();
   }
 }
 
-// Create function that will stop the interval
-function stopTimer() {
-  // Set timer to inactive
-  const timerContainer = document.querySelector(".digits");
-  timerContainer.classList.remove("active");
+// Add an event listener that will reset timer while it is running, or even when it ends
+const stopTimerBtn = document.getElementById("stop-timer");
 
-  // Add bounce effect
-  timerContainer.classList.remove("animate__bounceIn");
-  timerContainer.classList.add("animate__wobble");
-
-  // Remove the disable status for start button
-  startBtn.removeAttribute("disabled");
-
-  // Stop the interval from running
-  clearInterval(timerInterval);
-}
+stopTimerBtn.addEventListener("click", () => {
+  stopTimer();
+});
 
 // Add an event listener that will reset timer while it is running, or even when it ends
 const resetBtn = document.getElementById("reset-timer");
@@ -159,3 +152,25 @@ addLap.addEventListener("click", () => {
   seconds = 0;
   milliSeconds = 0;
 });
+
+// Create function that will stop the interval
+function stopTimer() {
+  // Set timer to inactive
+  const timerContainer = document.querySelector(".digits");
+  timerContainer.classList.remove("active");
+
+  // Add bounce effect
+  timerContainer.classList.remove("animate__bounceIn");
+  timerContainer.classList.add("animate__wobble");
+
+  // Re-enable the start button and disable the stop and lap button
+  startBtn.style.display = "block";
+  stopTimerBtn.style.display = "none";
+  addLap.setAttribute("disabled", "true");
+
+  // Remove the disable status for start button
+  startBtn.removeAttribute("disabled");
+
+  // Stop the interval from running
+  clearInterval(timerInterval);
+}
