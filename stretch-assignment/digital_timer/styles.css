@@ -1,7 +1,5 @@
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  background: #130f40;
 }
 
 .digit {
@@ -9,6 +7,87 @@ body {
   font-size: 80px;
 }
 
-.redDigit {
-  color: red;
+.digits {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: #30336b 1px solid;
+  padding: 20px;
+  width: 250px;
+  background: #dff9fb;
+  margin: 50px auto;
+  border-radius: 10px;
+  color: #fff;
+  background: #eb4d4b;
+  font-family: "Inconsolata", monospace;
+}
+
+.digits.active {
+  background: #6ab04c !important;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.buttons button {
+  width: 180px;
+  padding: 10px 25px;
+  cursor: pointer;
+  background: #e056fd;
+  color: #fff;
+  border: #be2edd;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14pt;
+  margin-bottom: 20px;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+}
+
+#stop-timer {
+  background: #eb4d4b;
+}
+
+.buttons button:disabled:hover {
+  background: #e056fd !important;
+  color: #fff !important;
+}
+
+.buttons button:hover,
+#stop-timer:hover {
+  color: #be2edd;
+  background: #fff;
+}
+
+.buttons button:disabled {
+  opacity: 0.5;
+}
+
+#laps {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 15px;
+  padding-top: 15px;
+  width: 300px;
+  margin: 0 auto;
+}
+
+#laps .lap-item {
+  color: white;
+  font-family: "Inconsolata", monospace;
+  font-size: 20pt;
+  margin: 10px 0 0;
+  padding-top: 10px;
+  border-top: #fff 1px solid;
+  width: 100%;
+  text-align: center;
 }

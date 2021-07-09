@@ -2,7 +2,14 @@
 <html>
   <head>
     <title>DOM I</title>
-    <link rel="stylesheet" href="./styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@400;700&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="./styles.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.0.0/animate.min.css"
+    />
   </head>
   <body>
     <div class="digits">
@@ -12,5 +19,17 @@
       <div class="digit" id="msHundreds">-</div>
       <div class="digit" id="msTens">-</div>
     </div>
-  </body>
+
+    <div class="buttons">
+      <button id="start-timer">Start Timer</button>
+      <button id="stop-timer" style="display: none">Pause Timer</button>
+      <button id="add-lap" disabled>Add Lap</button>
+      <button id="reset-timer">Reset</button>
+    </div>
+
+    <div id="laps">
+    </div>
+
+    <script src="index.js"></script>
+  </body> 
 </html>
